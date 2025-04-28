@@ -13,5 +13,8 @@ class SentimentRepositoryImpl
     constructor(
         private val api: SentimentApi,
     ) : SentimentRepository {
-        override suspend fun analyzeSentiment(text: String): Sentiment = api.analyzeSentiment(text).toDomain()
+        override suspend fun analyzeSentiment(text: String): Sentiment =
+            api
+                .analyzeSentiment(text)
+                .toDomain()
     }
