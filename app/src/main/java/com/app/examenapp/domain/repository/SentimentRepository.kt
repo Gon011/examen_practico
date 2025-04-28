@@ -1,4 +1,7 @@
 package com.app.examenapp.domain.repository
 
-class SentimentRepository {
+import com.app.examenapp.domain.model.Sentiment
+
+interface SentimentRepository {
+    suspend fun analyzeSentiment(text: String): Sentiment
 }

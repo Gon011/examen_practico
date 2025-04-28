@@ -1,4 +1,7 @@
 package com.app.examenapp.domain.model
 
-class Sentiment {
-}
+data class Sentiment(
+    val score: Double,
+    val text: String,
+    val sentiment: String,
+)
