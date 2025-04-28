@@ -7,17 +7,17 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class AnalyzeSentimentUseCase
+class GetSentimentListUseCase
     @Inject
     constructor(
         private val repository: SentimentRepository,
     ) {
-        operator fun invoke(text: String): Flow<Result<Sentiment>> =
+        operator fun invoke(): Flow<Result<List<Sentiment>>> =
             flow {
                 try {
                     emit(Result.Loading)
-                    val sentiment = repository.analyzeSentiment(text)
-                    emit(Result.Success(sentiment))
+                    val sentimentHistory = repository.getSentimentList()
+                    emit(Result.Success(sentimentHistory))
                 } catch (e: Exception) {
                     emit(Result.Error(e))
                 }
