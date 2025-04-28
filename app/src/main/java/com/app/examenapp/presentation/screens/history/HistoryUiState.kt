@@ -1,4 +1,9 @@
 package com.app.examenapp.presentation.screens.history
 
-class HistoryUiState {
-}
+import com.app.examenapp.domain.model.Sentiment
+
+data class HistoryUiState(
+    val sentimentList: List<Sentiment> = emptyList(),
+    val isLoading: Boolean = false,
+    val error: String? = null,
+)
